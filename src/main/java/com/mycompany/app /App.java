@@ -3,19 +3,16 @@ package com.mycompany.app;
 /**
  * Hello world!
  */
-public class App
-{
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
-    private final String message = "Hello World!";
-
-    public App() {}
-
-    public static void main(String[] args) {
-        System.out.println(new App().getMessage());
+public class App extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        resp.setContentType("text/html");
+        resp.getWriter().println("<html><body><h1>Hello, World!</h1></body></html>");
     }
-
-    private final String getMessage() {
-        return message;
-    }
-
 }
